@@ -7,6 +7,9 @@ import Booking from "@/components/Booking";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import SiteExperience from "@/components/SiteExperience";
+import LiveTransition from "@/components/LiveTransition";
+import ContactTransition from "@/components/ContactTransition";
+import Showreel from "@/components/Showreel";
 
 export default function Home() {
   return (
@@ -18,9 +21,18 @@ export default function Home() {
         <Hero />
         <Intro />
         <Roster />
+
+        <LiveTransition />
+
         <Live />
+
+        <Showreel />
+
         <Booking />
         <About />
+
+        <ContactTransition />
+
         <Contact />
       </main>
     </>

@@ -463,43 +463,87 @@ export default function Live() {
         {/* FINAL RICKY */}
 
         <motion.div
-          className="relative mt-20 aspect-[4/5] overflow-hidden md:mt-28 md:aspect-[16/8]"
+          className="relative mt-20 overflow-hidden md:mt-28"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.9, ease }}
         >
-          <motion.div
-            className="absolute inset-0"
-            whileInView={{ scale: [1.06, 1] }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease }}
-          >
-            <Image
-              src="/media/live/ricky3.jpg"
+          {/* MOBILE — separate asset to avoid Safari cache/decoding issues */}
+          <div className="relative h-[72vh] min-h-[560px] overflow-hidden bg-black md:hidden">
+            <motion.img
+              src="/media/live/ricky3-mobile.jpg"
               alt="Escenario de concierto"
-              fill
-              sizes="100vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              initial={{ scale: 1.04 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease }}
+              loading="eager"
+              decoding="async"
             />
-          </motion.div>
 
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
+            <div className="pointer-events-none absolute inset-0 bg-black/10" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/80" />
 
-          <div className="absolute inset-x-5 bottom-6 md:inset-x-8 md:bottom-8">
-            <div className="border-t border-white/25 pt-5">
-              <motion.h3
-                className="font-display text-[12vw] leading-[0.78] tracking-[-0.07em] sm:text-[10vw] md:text-[7vw] lg:text-[6.3vw]"
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.15, ease }}
-              >
-                THE SHOW
-                <br />
-                STARTS <span className="text-tc-coral">HERE.</span>
-              </motion.h3>
+            <div className="absolute left-5 right-5 top-5 z-10 flex items-center justify-between">
+              <span className="text-[6px] uppercase tracking-[0.28em] text-white/50">
+                Live
+              </span>
+              <span className="h-[5px] w-[5px] rounded-full bg-tc-coral" />
+            </div>
+
+            <div className="absolute inset-x-5 bottom-6 z-10">
+              <div className="border-t border-white/30 pt-5">
+                <motion.h3
+                  className="font-display text-[15vw] leading-[0.76] tracking-[-0.07em]"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.15, ease }}
+                >
+                  THE SHOW
+                  <br />
+                  STARTS <span className="text-tc-coral">HERE.</span>
+                </motion.h3>
+              </div>
+            </div>
+          </div>
+
+          {/* DESKTOP — keep the approved composition */}
+          <div className="relative hidden aspect-[16/8] overflow-hidden md:block">
+            <motion.div
+              className="absolute inset-0"
+              whileInView={{ scale: [1.06, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease }}
+            >
+              <Image
+                src="/media/live/ricky3.jpg"
+                alt="Escenario de concierto"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </motion.div>
+
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
+
+            <div className="absolute inset-x-8 bottom-8">
+              <div className="border-t border-white/25 pt-5">
+                <motion.h3
+                  className="font-display text-[7vw] leading-[0.78] tracking-[-0.07em] lg:text-[6.3vw]"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.15, ease }}
+                >
+                  THE SHOW
+                  <br />
+                  STARTS <span className="text-tc-coral">HERE.</span>
+                </motion.h3>
+              </div>
             </div>
           </div>
         </motion.div>
