@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+/* ============================================
+   TRESCERO ENTERTAINMENT — DESIGN SYSTEM
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --tc-blue: #080d68;
+  --tc-coral: #f26b63;
+
+  /* Neutrals */
+  --tc-white: #ffffff;
+  --tc-black: #090909;
+  --tc-off-white: #f5f4f0;
+  --tc-gray: #737373;
+
+  /* Base */
+  --background: var(--tc-white);
+  --foreground: var(--tc-black);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-tc-blue: var(--tc-blue);
+  --color-tc-coral: var(--tc-coral);
+  --color-tc-white: var(--tc-white);
+  --color-tc-black: var(--tc-black);
+  --color-tc-off-white: var(--tc-off-white);
+  --color-tc-gray: var(--tc-gray);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+--font-mono: var(--font-geist-mono);
+--font-display: var(--font-tc-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   GLOBAL RESET
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--tc-white);
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection {
+  background: var(--tc-coral);
+  color: var(--tc-blue);
 }
